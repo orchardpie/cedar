@@ -125,6 +125,12 @@ describe(@"subjectAction", ^{
     });
 });
 
+describe(@"itShouldRaiseException", ^{
+    subjectAction(^{ [[NSException exceptionWithName:NSInternalInconsistencyException reason:@"Just because" userInfo:nil] raise]; });
+
+    itShouldRaiseException();
+});
+
 describe(@"Matchers", ^{
     describe(@"equality", ^{
         describe(@"with Objective-C types", ^{

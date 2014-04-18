@@ -19,6 +19,7 @@ CDRExampleGroup * describe(NSString *, CDRSpecBlock);
 extern CDRExampleGroup* (*context)(NSString *, CDRSpecBlock);
 
 CDRExample * it(NSString *, CDRSpecBlock);
+CDRExample * itShouldRaiseException();
 
 CDRExampleGroup * xdescribe(NSString *, CDRSpecBlock);
 extern CDRExampleGroup* (*xcontext)(NSString *, CDRSpecBlock);

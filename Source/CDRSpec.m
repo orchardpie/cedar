@@ -1,6 +1,7 @@
 #import "CDRSpec.h"
 #import "CDRExample.h"
 #import "CDRExampleGroup.h"
+#import "CDRExceptionExample.h"
 #import "CDRSpecFailure.h"
 #import "SpecHelper.h"
 #import "CDRSymbolicator.h"
@@ -47,6 +48,12 @@ void subjectAction(CDRSpecBlock block) {
 
 CDRExample * it(NSString *text, CDRSpecBlock block) {
     CDRExample *example = [CDRExample exampleWithText:text andBlock:block];
+    [currentSpec.currentGroup add:example];
+    return with_stack_address(example);
+}
+
+CDRExample * itShouldRaiseException() {
+    CDRExample *example = [CDRExceptionExample example];
     [currentSpec.currentGroup add:example];
     return with_stack_address(example);
 }
